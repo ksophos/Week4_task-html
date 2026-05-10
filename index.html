@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Aishopos Library - My Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@700&amp;display=swap" rel="stylesheet">
+    <style>
+    html, body {
+    font-family: 'Inter', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f0f7ff !important; /* Biru sangat muda khas Santorini */
+    color: #334155;
+}
+
+/* 2. Mengubah Navbar menjadi Putih Bersih */
+.w3-theme-d2 {
+    background-color: #ffffff !important;
+    color: #004a99 !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.w3-theme-d4 {
+    background-color: #00509d !important; /* Tombol Home Biru */
+}
+
+
+.w3-card, .w3-card-4 {
+    border-radius: 20px !important;
+    border: none !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04) !important;
+    overflow: hidden;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Georgia', serif !important; 
+    color: #004a99;
+    font-weight: bold;
+}
+
+.w3-container h4 {
+    font-family: 'Montserrat', sans-serif !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 15px 0;
+}
+
+.book-item {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    transition: 0.3s;
+}
+
+.book-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Warna Footer */
+footer.w3-theme-d3 { background-color: #0f172a !important; }
+footer.w3-theme-d5 { background-color: #020617 !important; }
+
+.w3-bar.w3-theme-d2 {
+    background-color: #ffffff !important; 
+    color: #004a99 !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Tombol Home agar tetap Biru sebagai aksen */
+.w3-bar-item.w3-theme-d4 {
+    background-color: #00509d !important;
+    color: #fff !important;
+}
+
+/* Efek Hover pada Menu Navbar */
+.w3-bar-item.w3-button:hover {
+    background-color: #f0f7ff !important;
+    color: #00509d !important;
+}
+
+.w3-card, .w3-card-2, .w3-card-4, .w3-white.w3-round {
+    border-radius: 20px !important; 
+    border: none !important; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important; /
+    transition: transform 0.3s ease; 
+}
+
+.w3-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.w3-card img {
+    border-radius: 15px 15px 0 0; 
+}
+.santorini-table {
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+}
+
+.santorini-table th {
+    font-family: 'Montserrat', sans-serif !important;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+.santorini-table td {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+.book-link {
+    color: #004a99;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.book-link:hover {
+    color: #00b4d8;
+    text-decoration: underline;
+}
+.santorini-table .w3-tag {
+    background-color: #004a99 !important; /* Warna Biru Santorini untuk semua */
+    color: white !important;
+    display: inline-flex !important;
+    align-items: center; !important;
+    min-width: 150px !important; /* Menyamakan lebar kotak */
+    text-align: center !important;
+    justify-content: center; !important;
+    height: 32px !important;
+    padding: 0 10px !important;
+    border-radius: 6px !important;
+    font-size: 11px !important;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    line-height: normal !important;
+}
+
+/* --- PERBAIKAN KOMENTAR (AGAR TERPISAH SEMPURNA) --- */
+/* Menutup celah antara tabel dan postingan pertama */
+.w3-container.w3-card.w3-white.w3-round.w3-margin {
+    margin-bottom: 25px !important; /* Memberi jarak antar kotak */
+    display: block !important;
+    clear: both; /* Memastikan tidak ada elemen yang mengambang/menempel */
+}
+
+/* Memberikan padding tambahan pada tabel agar tidak sesak */
+.w3-responsive {
+    margin-bottom: 20px;
+}
+    </style>
+  </head>
+<body class="w3-theme-l5">
+
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Αρχική</a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Συλλογές Βιβλίων"><i class="fa fa-globe"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Ρυθμίσεις Λογαριασμού"><i class="fa fa-user"></i></a>
+    <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+      <a href="#" class="w3-bar-item w3-button">Προτεινόμενα Βιβλία για Εσάς</a>
+      <a href="#" class="w3-bar-item w3-button">Το βιβλίο είναι δανεισμένο</a>
+      <a href="#" class="w3-bar-item w3-button">Μπορεί να σας αρέσει</a>
+    </div>
+  </div>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Aisya Sophos">
+    <img src="https://www.w3schools.com/w3images/avatar6.png" class="w3-circle" style="height:23px;width:23px" alt="Avatar">
+  </a>
+ </div>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+<div class="w3-card w3-round w3-white">
+  <div class="w3-container w3-padding-16">
+    <!-- Nama Library sebagai Brand -->
+    <h4 class="w3-center" style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #004a99; margin-bottom: 5px;">
+      Αἰσόφος
+    </h4>
+    <p class="w3-center w3-small w3-opacity" style="margin-top: 0; letter-spacing: 2px;">Ψηφιακή Βιβλιοθήκη</p>
+    
+    <!-- Foto Profil -->
+    <p class="w3-center">
+      <img src="https://www.w3schools.com/w3images/avatar5.png" class="w3-circle" style="height:106px;width:106px; border: 3px solid #f0f7ff;" alt="Avatar">
+    </p>
+    
+    <h5 class="w3-center" style="font-family: 'Inter', sans-serif; font-weight: 600; margin-top: 10px;">
+      Αϊνουν Σ. Γιαμινάχ
+    </h5>
+    
+    <hr style="border-top: 1px solid #eee; margin: 15px 0;">
+    
+    <!-- Info Detail -->
+    <div style="padding-left: 10px;">
+      <p><i class="fa fa-id-badge fa-fw w3-margin-right w3-text-blue"></i> Ψηφιακός Βιβλιοθηκονόμος</p>
+      <p><i class="fa fa-university fa-fw w3-margin-right w3-text-blue"></i> Ισλαμικό Κρατικό Πανεπιστήμιο Αντάσαρι Μπαντζαρμασί</p>
+      <p><i class="fa fa-map-marker fa-fw w3-margin-right w3-text-blue"></i> Κρήτη, Ελλάδα</p>
+    </div>
+  </div>
+</div>
+      <br>
+      
+      <!-- Accordion -->
+      <div class="w3-card w3-round">
+        <div class="w3-white">
+          <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> Ομάδες</button>
+          <div id="Demo1" class="w3-hide w3-container">
+            <p>Some text..</p>
+          </div>
+          <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> Εκδηλώσεις</button>
+          <div id="Demo2" class="w3-hide w3-container">
+            <p>Some other text..</p>
+          </div>
+          <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> Φωτογραφίες</button>
+          <div id="Demo3" class="w3-hide w3-container">
+         <div class="w3-row-padding">
+         <br>
+           <div class="w3-half">
+             <img src="https://www.w3schools.com/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="https://www.w3schools.com/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="https://www.w3schools.com/w3images/mountains.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="https://www.w3schools.com/w3images/forest.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="https://www.w3schools.com/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="https://www.w3schools.com/w3images/snow.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+         </div>
+          </div>
+        </div>      
+      </div>
+      <br>
+      
+      <!-- Interests --> 
+      <div class="w3-card w3-round w3-white w3-hide-small">
+        <div class="w3-container">
+          <p>Ενδιαφέροντα</p>
+          <p>
+            <span class="w3-tag w3-small w3-theme-d5">Κλασική Λογοτεχνία</span>
+            <span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
+            <span class="w3-tag w3-small w3-theme-d3">Ψυχολογικά Μυθιστορήματα</span>
+            <span class="w3-tag w3-small w3-theme-d2">Ποίηση</span>
+            <span class="w3-tag w3-small w3-theme-d1">Βιβλιοθήκη</span>
+            <span class="w3-tag w3-small w3-theme">World Literature</span>
+            <span class="w3-tag w3-small w3-theme-l1">Ξενόγλωσσα Βιβλία</span>
+          </p>
+        </div>
+      </div>
+      <br>
+      
+         
+    <!-- End Left Column -->
+    </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card w3-round w3-white">
+            <div class="w3-container w3-padding">
+              <h6 class="w3-opacity">Σημείωμα Βιβλιοθήκης:</h6>
+<p contenteditable="true" class="w3-border w3-padding" style="border-radius: 10px;">«Η βιβλιοθήκη είναι το μέρος όπου ο χρόνος σταματά και οι περιπέτειες ξεκινούν.»</p>
+              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Δημοσίευση</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="w3-container w3-card w3-white w3-round w3-margin" style="padding-bottom: 20px;">
+        <br>
+        <h3 style="font-family: 'Georgia', serif; color: #004a99; font-weight: bold; margin-bottom: 20px;">
+        Κατάλογος Βιβλίων
+       </h3>
+
+        <div class="w3-responsive">
+  <table class="w3-table w3-striped w3-bordered w3-hoverable santorini-table">
+    <thead>
+      <tr style="background-color: #004a99; color: white;">
+        <th>Αρ.</th>
+        <th>Τίτλος Βιβλίου</th>
+        <th>Συγγραφέας</th>
+        <th>Tahun</th>
+        <th>Κατηγορία</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><div style="display: flex; align-items: center;">
+      <img src="download.jpeg" style="width: 50px; height: 70px; margin-right: 15px; border-radius: 5px; object-fit: cover;" alt="Cover">
+        <a href="download.jpeg" target="_blank" class="book-link">Λάσκαρ Πελάγκι</a></div></td>
+        <td>Αντρέα Χιράτα</td>
+        <td>2005</td>
+        <td><span class="w3-tag w3-blue w3-round">Μυθιστόρημα</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><div style="display: flex; align-items: center;">
+      <img src="batch_bumi-manusia.jpg" style="width: 50px; height: 70px; margin-right: 15px; border-radius: 5px; object-fit: cover;" alt="Cover">
+        <a href="batch_bumi-manusia.jpg" target="_blank" class="book-link">Μπουμί Μανουσία</a></div></td>
+        <td>Πραμόεντια Α. Τουέρ</td>
+        <td>1980</td>
+        <td><span class="w3-tag w3-indigo w3-round">Ιστορία</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><div style="display: flex; align-items: center;">
+      <img src="100605_l.jpg" style="width: 50px; height: 70px; margin-right: 15px; border-radius: 5px; object-fit: cover;" alt="Cover">
+        <a href="100605_l.jpg" target="_blank" class="book-link">Όχι Πια Άνθρωπος</a></div></td>
+        <td>Οσάμου Νταζάι</td>
+        <td>2006</td>
+        <td><span class="w3-tag w3-indigo w3-round">Ψυχολογική Λογοτεχνία</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><div style="display: flex; align-items: center;">
+      <img src="9780140268867-jacket-large.webp" style="width: 50px; height: 70px; margin-right: 15px; border-radius: 5px; object-fit: cover;" alt="Cover">
+        <a href="9780140268867-jacket-large.webp" target="_blank" class="book-link">Η Οδύσσεια</a></div></td>
+        <td>Ομήρου</td>
+        <td>2024</td>
+        <td><span class="w3-tag w3-indigo w3-round">Επική Ποίηση</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><div style="display: flex; align-items: center;">
+      <img src="9780140439083-jacket-large.webp" style="width: 50px; height: 70px; margin-right: 15px; border-radius: 5px; object-fit: cover;" alt="Cover">
+        <a href="9780140439083-jacket-large.webp" target="_blank" class="book-link">Σπουδή στο Κόκκινο</a></div></td>
+        <td>Ομήρου</td>
+        <td>2024</td>
+        <td><span class="w3-tag w3-indigo w3-round">Αστυνομική Λογοτεχνία</span></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><div style="display: flex; align-items: center;">
+      <img src="content.jpeg" style="width: 50px; height: 70px; margin-right: 15px; border-radius: 5px; object-fit: cover;" alt="Cover">
+        <a href="content.jpeg" target="_blank" class="book-link">Οι Αδελφοί Καραμάζοφ</a></td>
+        <td>Ομήρου</td>
+        <td>2025</td>
+        <td><span class="w3-tag w3-indigo w3-round">Αστυνομική Λογοτεχνία</span></div></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td><div style="display: flex; align-items: center;">
+      <img src="XL.jpeg" style="width: 50px; height: 70px; margin-right: 15px; border-radius: 5px; object-fit: cover;" alt="Cover">
+        <a href="XL.jpeg" target="_blank" class="book-link">Άλμοντ</a></div></td>
+        <td>Σον Γουόν-Πιουνγκ</td>
+        <td>2017</td>
+        <td><span class="w3-tag w3-indigo w3-round">Αστυνομική Λογοτεχνία</span></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td><div style="display: flex; align-items: center;">
+      <img src="61-D06GIMQL._SY522_1.jpg" style="width: 50px; height: 70px; margin-right: 15px; border-radius: 5px; object-fit: cover;" alt="Cover">
+        <a href="61-D06GIMQL._SY522_1.jpg" target="_blank" class="book-link">Δον Κιχώτης</a></div></td>
+        <td>Μιγκέλ ντε Θερβάντες</td>
+        <td>2015</td>
+        <td><span class="w3-tag w3-indigo w3-round">Κλασική Λογοτεχνία</span></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td><div style="display: flex; align-items: center;">
+      <img src="713NSafQdGL._SL1051_.jpg" style="width: 50px; height: 70px; margin-right: 15px; border-radius: 5px; object-fit: cover;" alt="Cover">
+        <a href="713NSafQdGL._SL1051_.jpg" target="_blank" class="book-link">Οι Άθλιοι</a></div></td>
+        <td>Βίκτωρος Ουγκώ</td>
+        <td>2022</td>
+        <td><span class="w3-tag w3-indigo w3-round">Κλασική Λογοτεχνία</span></td>
+      </tr>
+     <tr>
+        <td>10</td>
+        <td><div style="display: flex; align-items: center;">
+      <img src="download.png" style="width: 50px; height: 70px; margin-right: 15px; border-radius: 5px; object-fit: cover;" alt="Cover">
+        <a href="download.png" target="_blank" class="book-link">Φάουστ</a></div></td>
+        <td>Βίκτωρος Ουγκώ</td>
+        <td>2014</td>
+        <td><span class="w3-tag w3-indigo w3-round">Τραγωδία</span></td>
+      </tr>
+     <tr>
+        <td>11</td>
+        <td><div style="display: flex; align-items: center;">
+      <img src="download (2).jpeg" style="width: 50px; height: 70px; margin-right: 15px; border-radius: 5px; object-fit: cover;" alt="Cover">
+        <a href="download (2).jpeg" target="_blank" class="book-link">Καλίλα και Ντίμνα</a></div></td>
+        <td>Ιμπν αλ-Μουκάφα</td>
+        <td>2019</td>
+        <td><span class="w3-tag w3-indigo w3-round">Μύθος</span></td>
+      </tr>
+     <tr>
+        <td>12</td>
+        <td><div style="display: flex; align-items: center;">
+      <img src="download (1).jpeg" style="width: 50px; height: 70px; margin-right: 15px; border-radius: 5px; object-fit: cover;" alt="Cover">
+        <a href="download (1).jpeg" target="_blank" class="book-link">Κόλαση</a></td>
+        <td>Δάντη Αλιγκιέρι</td>
+        <td>2021</td>
+        <td><span class="w3-tag w3-indigo w3-round">Επική Ποίηση</span></div></td>
+      </tr>
+
+    </tbody>
+  </table>
+      </div> </div> </div> <div class="w3-col m2">
+    <div class="w3-card w3-round w3-white w3-center">
+      <div class="w3-container">
+        <p>Επερχόμενη Εκδήλωση:</p>
+        <img src="https://www.w3schools.com/w3images/forest.jpg" alt="Forest" style="width:100%;">
+        <p><strong>Παζάρι Βιβλίου</strong></p>
+        <p>Παρασκευή 15:00</p>
+        <p>δημόσιος κήπος με λουλούδια</p>
+        <p><button class="w3-button w3-block w3-theme-l4">Πληροφορίες</button></p>
+      </div>
+    </div>
+  </div>
+
+</div> <div class="w3-row">
+    <div class="w3-col m12">
+      <div class="w3-container w3-card w3-white w3-round w3-margin">
+        <br>
+        <img src="https://www.w3schools.com/w3images/avatar3.png" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">1 λεπτό</span>
+        <h4>Ανδρέας Βίγγο</h4><br>
+        <hr class="w3-clear">
+        <p>Hi, Guys.</p>
+        <p>I just finished reading books last summer, so let me share some recommendations. Just old titles, but always give me the same feeling as the first time.</p>
+        <br>
+        <p style="font-style: italic;">Γεια σας παιδιά.</p>
+        <p style="font-style: italic;">Μόλις τελείωσα το διάβασμα κάποιων βιβλίων αυτό το καλοκαίρι, οπότε επιτρέψτε μου να μοιραστώ μερικές προτάσεις. Είναι παλιοί τίτλοι, αλλά μου δίνουν πάντα το ίδιο συναίσθημα όπως την πρώτη φορά.</p>
+
+        <button class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i><i class="fa fa-heart w3-text-red"></i></button>
+      </div>
+      
+      <div class="w3-container w3-card w3-white w3-round w3-margin">
+        <br>
+        <img src="https://www.w3schools.com/w3images/avatar3.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">16 λεπτά</span>
+        <h4>Ήλιος Ζέφυρος</h4><br>
+        <hr class="w3-clear">
+        <p>Βρίσκομαι αυτή τη στιγμή στο Λονδίνο. Σχεδιάζω να ψάξω για βιβλία για να τα πάρω μαζί μου στο σπίτι. Μπορείς να μου δώσεις μερικές καλές προτάσεις</p>
+       
+        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i><i class="fa fa-heart w3-text-red"></i></button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Σχόλιο</button> 
+      </div>  
+
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="https://www.w3schools.com/w3images/avatar6.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">32 λεπτά</span>
+        <h4>Λύρα Σελήνη</h4><br>
+        <hr class="w3-clear">
+        <p>Χρειάζομαι ένα βιβλίο με παρόμοιο σκηνικό</p>
+        <img src="https://www.w3schools.com/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+        <p>Μη διστάσεις να μου δώσεις τις προτάσεις σου...</p>
+        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i><i class="fa fa-heart w3-text-red"></i></button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Σχόλιο</button> 
+        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom">  Κατάστημα</button>
+      </div> 
+      
+    <!-- End Middle Column -->
+    </div>
+    
+       
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-32" style="background-color: #004a99; color: white; margin-top: 32px;">
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <h3>Aisophos Digital Library</h3>
+      <p>Διαχείριση πληροφοριών, χτίζοντας το μέλλον. Προσωπικό διαδικτυακό έργο φοιτητή της Επιστήμης της Βιβλιοθηκονομίας.</p>
+    </div>
+    <div class="w3-third">
+      <h3>Quick Links</h3>
+      <ul class="w3-ul">
+        <li>Συλλογή βιβλίων</li>
+        <li>υπηρεσία αναφοράς</li>
+      </ul>
+    </div>
+    <div class="w3-third">
+       <p class="w3-right">φτιαγμένο με <i class="fa fa-heart w3-text-red"></i> στην Κρήτη, Ελλάδα</p>
+    </div>
+  </div>
+</footer>
+ 
+<script>
+// Accordion
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className += " w3-theme-d1";
+  } else { 
+    x.className = x.className.replace("w3-show", "");
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace(" w3-theme-d1", "");
+  }
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html> 
